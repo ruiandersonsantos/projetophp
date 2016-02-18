@@ -1,4 +1,4 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
@@ -6,8 +6,7 @@ if (!defined('BASEPATH'))
 class Corretor extends CI_Controller {
 
     public function adm() {
-        $this->load->database();
-
+      
         $this->load->model("corretores_model");
 
         $corretor = $this->corretores_model->buscarCorretor();
@@ -18,8 +17,6 @@ class Corretor extends CI_Controller {
     }
 
     public function index() {
-
-        $this->load->database();
 
         $this->load->model("corretores_model");
 
@@ -36,8 +33,6 @@ class Corretor extends CI_Controller {
 
     public function visualizar() {
 
-        $this->load->database();
-
         $this->load->model("corretores_model");
 
         $corretor = $this->corretores_model->buscarCorretor();
@@ -49,7 +44,6 @@ class Corretor extends CI_Controller {
 
     public function alterar() {
 
-        $this->load->database();
         $this->load->model("corretores_model");
 
         $corretor_atualiza = array(

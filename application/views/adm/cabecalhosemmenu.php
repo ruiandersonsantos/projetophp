@@ -28,24 +28,7 @@
                     <a style="margin-left: 15px; color: white;" href="index.php" class="navbar-brand">PAINEL DE CONTROLE</a>
                 </div>
 
-                <div class="collapse navbar-collapse " id="elementoCollapsel">
-                   
-                    <ul class="nav navbar-nav">
-                        <li  class="active"><a href="index.php">Home</a></li>
-                        <li><a href="corretor.php">Corretor</a></li>
-                        <li><a href="produto.php">Produto</a></li>
-                        <li><a href="#">Plano</a></li>
-                        <li><a href="#">Designer</a></li>
-                        <li><a href="sair">Sair</a></li>
-                    </ul>
-                    
-                    <div>
-                        <p style="margin-right: 15px; color: white;" class="navbar-text navbar-right">
-                            Olá <strong><?= $this->session->userdata("usuario_logado")['email'] ?></strong>
-                        </p>
-                    </div>
-                    
-                </div>
+                
             </div>
         </nav>
     
