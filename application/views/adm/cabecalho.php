@@ -6,9 +6,9 @@
         <!-- define a viewport -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- adicionar CSS Bootstrap -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">  
+        <link href="<?= base_url("css_b/bootstrap.min.css")?>" rel="stylesheet">  
         <!-- CSS personalizado -->
-        <link href = "css/estilo.css" rel = "stylesheet" media = "screen">
+        <link href = "<?= base_url("css_b/estilo.css")?>" rel = "stylesheet" media = "screen">
 
         <title>Area Administrativa</title>
     </head>

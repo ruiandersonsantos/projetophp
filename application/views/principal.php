@@ -17,7 +17,7 @@
             <nav class="blue darken-3">
 
                 <div class="nav-wrapper">
-                    <a href="/projetophp" class="brand-logo"><?=$corretor['titulosite']?></a>
+                    <a href="/" class="brand-logo"><?=$corretor['titulosite']?></a>
                     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
 
                     <!-- menu -->
@@ -40,7 +40,7 @@
                         <li><a id="mobileDemo_planos" href="#">Planos</a></li>
                         <li><a id="mobileDemo_sobreCorretor" href="#">Sobre o Corretor</a></li>
                         <li><a id="mobileDemo_faleConosco" href="#">Fale Conosco</a></li>
-                        <li><a href="formulario_orcamento.html">Solicite Orçamento</a></li>
+                        <li><a href="formulario_orcamento.php">Solicite Orçamento</a></li>
                     </ul>
                     <!-- ./menu-mobile -->
 
@@ -95,7 +95,7 @@
                 <div class="row">
                     <div id="titulo_produtos">
                         <h3 class="center-align">Produtos</h3>
-                        <p class="flow-text  center-align"><?=$produto['texto']?>
+                        <p class="flow-text  center-align">texto do produto
                         </p>
 
                     </div>
@@ -271,7 +271,7 @@
                     <div class="col s12">
 
                         <h2 class="center-align">Corretor</h2>
-                        <p class="flow-text center-align">Saiba um pouco mais sobre quem cuida da sua Saúde!</p>
+                        <p class="flow-text center-align"><?=$corretor['slogan']?></p>
 
                     </div>
                 </div>
@@ -279,16 +279,16 @@
                     <div class="col s12 m4">
                         <div class="card" id="card_corretor">      
                             <div class="card-content">
-                                <h5 class="">Sobre o Corretor</h5>
+                                <h5 class=""><?=$corretor['titulobiografia']?></h5>
                             </div>
                             <div class="card-action">
-                                <p>Um breve descrição sobre o corretor</p>
+                                <p><?=$corretor['biografia']?></p>
                             </div>
                         </div>
                     </div>
                     <div class="col s12 m8">                        
                         <div class="video-container">
-                            <iframe width="853" height="480" src="https://www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" ></iframe>
+                            <iframe width="853" height="480" src="<?=$corretor['linkvideo']?>" frameborder="0" ></iframe>
                         </div>
                     </div>
                 </div>
@@ -358,8 +358,8 @@
                         <div class="col s12 m12 l12">
                             <div class="col offset-s3 s12 offset-m4 m12 l3">
                                 <h5 id="logo_rodape"><a href="#"><span class="white-text"><?=$corretor['titulosite']?></span></a></h5>
-                                <a href="https://plus.google.com/u/0/" class=" " target="_blank"><i class="material-icons"><img src="img/redeSocial/google_plus.png"/></i></a>
-                                <a href="<?=$corretor['facebook']?>" class="" target="_blank"><i class="material-icons"><img src="img/redeSocial/facebook.png"/></i></a>
+                                <a href="<?=$corretor['linkgoogle']?>" class=" " target="_blank"><i class="material-icons"><img src="img/redeSocial/google_plus.png"/></i></a>
+                                <a href="<?=$corretor['linkfacebook']?>" class="" target="_blank"><i class="material-icons"><img src="img/redeSocial/facebook.png"/></i></a>
                                 <a href="#" class="btn-floating  blue lighten-3" target="_blank"><i class="material-icons" style="margin-top: 0px;"><img src="img/redeSocial/twitter2.png"/></i></a>
 
                             </div>
