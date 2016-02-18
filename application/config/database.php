@@ -47,11 +47,14 @@
 
 $active_group = 'default';
 $active_record = TRUE;
-
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '42301886';
-$db['default']['database'] = 'projetpphp';
+$db['default']['username'] = 'simone';
+$db['default']['password'] = '442332si';
+$db['default']['database'] = 'projetophp';
+//$db['default']['hostname'] = 'localhost';
+//$db['default']['username'] = 'root';
+//$db['default']['password'] = '42301886';
+//$db['default']['database'] = 'projetphp';
 //$db['default']['hostname'] = 'ruianderson.com.br';
 //$db['default']['username'] = 'ruiand_root';
 //$db['default']['password'] = '42301886';
