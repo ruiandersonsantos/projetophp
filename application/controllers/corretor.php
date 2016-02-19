@@ -6,7 +6,9 @@ if (!defined('BASEPATH'))
 class Corretor extends CI_Controller {
 
     public function adm() {
-      
+       
+        autoriza();
+        
         $this->load->model("corretores_model");
 
         $corretor = $this->corretores_model->buscarCorretor();
@@ -22,25 +24,21 @@ class Corretor extends CI_Controller {
 
         $corretor = $this->corretores_model->buscarCorretor();
 
-        $produto = array(
-            "texto" => "texto que isra aparecer no tag do produto"
-        );
-
         $dados = array("corretor" => $corretor, "produto" => $produto);
 
         $this->load->view('principal', $dados);
     }
 
-    public function visualizar() {
-
-        $this->load->model("corretores_model");
-
-        $corretor = $this->corretores_model->buscarCorretor();
-
-        $dados = array("corretor" => $corretor);
-
-        $this->load->view('corretor/dados', $dados);
-    }
+//    public function visualizar() {
+//        
+//        $this->load->model("corretores_model");
+//
+//        $corretor = $this->corretores_model->buscarCorretor();
+//
+//        $dados = array("corretor" => $corretor);
+//
+//        $this->load->view('corretor/dados', $dados);
+//    }
 
     public function alterar() {
 

@@ -8,8 +8,8 @@
 
 <section class="sessao_cadastroCorretor" style="margin-top: 90px; text-align: center;" >
     <div class="container">
-
-        <form class="form-horizontal" id="form_login">
+         <h1> <?= $this->session->flashdata("sucesso")?></h1>
+         <form class="form-horizontal" id="form_login" method="post" action="reenviandoSenha">
             <div class="row">
 
                 <div id="tituloLogin" name="tituloLogin"><h1>Recuperar Senha</h1></div>
@@ -25,10 +25,10 @@
 
                 <div class="form-group-lg">
                     <div>
-                        <label class="sr-only" for="telefone">Telefone</label>
+                        <label class="sr-only" for="cpf">CPF</label>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12" id="div_input">
-                        <input type="number" name="telefone" class="form-control" placeholder="Telefone" required="autofocus">
+                        <input type="text" name="cpf" class="form-control" placeholder="cpf" required="autofocus">
                     </div>
                 </div>
 

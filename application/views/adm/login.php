@@ -8,7 +8,8 @@
 <section class="sessao_cadastroCorretor">
     <div class="container">
         
-           <h1> <?= $this->session->flashdata("mensagem")?></h1>
+           <h1> <?= $this->session->flashdata("sucesso")?></h1>
+           <h1> <?= $this->session->flashdata("error")?></h1>
            
         
          <?php if(!$this->session->userdata("usuario_logado")) : ?>

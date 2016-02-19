@@ -25,18 +25,18 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <a style="margin-left: 15px; color: white;" href="index.php" class="navbar-brand">PAINEL DE CONTROLE</a>
+                    <a style="margin-left: 15px; color: white;" href="<?= base_url("/index.php/usuario/login")?>" class="navbar-brand">PAINEL DE CONTROLE</a>
                 </div>
 
                 <div class="collapse navbar-collapse " id="elementoCollapsel">
                    
                     <ul class="nav navbar-nav">
-                        <li  class="active"><a href="index.php">Home</a></li>
-                        <li><a href="corretor.php">Corretor</a></li>
+                        <li  class="active"><a href="<?= base_url("/index.php/usuario/login")?>">Home</a></li>
+                        <li><a href="../corretor/adm">Corretor</a></li>
                         <li><a href="produto.php">Produto</a></li>
                         <li><a href="#">Plano</a></li>
                         <li><a href="#">Designer</a></li>
-                        <li><a href="sair">Sair</a></li>
+                        <li><a href="<?= base_url("index.php/usuario/sair")?>">Sair</a></li>
                     </ul>
                     
                     <div>

@@ -25,7 +25,7 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <a style="margin-left: 15px; color: white;" href="index.php" class="navbar-brand">PAINEL DE CONTROLE</a>
+                    <a style="margin-left: 15px; color: white;" href="<?= base_url("/index.php/usuario/login")?>" class="navbar-brand">PAINEL DE CONTROLE</a>
                 </div>
 
                 
