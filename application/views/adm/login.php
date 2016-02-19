@@ -1,20 +1,28 @@
- <?php if($this->session->userdata("usuario_logado")) : ?>
-    <?php include("cabecalho.php")?>
- <?php endif?>
+<?php if ($this->session->userdata("usuario_logado")) : ?>
+    <?php include("cabecalho.php") ?>
+<?php endif ?>
 
- <?php if(!$this->session->userdata("usuario_logado")) : ?>
-    <?php include("cabecalhosemmenu.php")?>
- <?php endif?>
+<?php if (!$this->session->userdata("usuario_logado")) : ?>
+    <?php include("cabecalhosemmenu.php") ?>
+<?php endif ?>
 <section class="sessao_cadastroCorretor">
     <div class="container">
+
+
+        <h1><?= $this->session->flashdata("sucesso") ?></h1>
         
-           <h1> <?= $this->session->flashdata("sucesso")?></h1>
-           <h1> <?= $this->session->flashdata("error")?></h1>
-           
-        
-         <?php if(!$this->session->userdata("usuario_logado")) : ?>
+        <?php if (!$this->session->userdata("usuario_logado")) : ?>
             <form class="form-horizontal" id="form_login" method="post" action="logar">
                 <div class="row">
+
+                    <?php if($this->session->flashdata("error")) :?>
+                    <h4 class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <?= $this->session->flashdata("error") ?>
+                    </h4>
+                    <?php endif?>
 
                     <div id="tituloLogin" name="tituloLogin"><h1>Login do sistema</h1></div>
 
@@ -50,6 +58,12 @@
 
                 </div>
             </form>
-        <?php endif?>
+        <?php endif ?>
     </div>
 </section>
+
+<script src="<?= base_url("js_b/jquery-1.11.3.min.js") ?>"></script>
+<script src="<?= base_url("js_b/bootstrap.min.js") ?>"></script>
+<script src="<?= base_url("js_b/jscript.js") ?>"></script>
+</body>
+</html>

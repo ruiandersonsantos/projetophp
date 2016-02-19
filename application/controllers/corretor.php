@@ -24,7 +24,7 @@ class Corretor extends CI_Controller {
 
         $corretor = $this->corretores_model->buscarCorretor();
 
-        $dados = array("corretor" => $corretor, "produto" => $produto);
+        $dados = array("corretor" => $corretor);
 
         $this->load->view('principal', $dados);
     }

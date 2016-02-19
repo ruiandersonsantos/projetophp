@@ -18,7 +18,7 @@ class Usuario extends CI_Controller {
     public function logar() {
 
         $this->load->model("usuarios_model");
-
+        
         $email = $this->input->post("email");
         $senha = $this->input->post("senha");
 
@@ -72,10 +72,10 @@ class Usuario extends CI_Controller {
             if ($retorno && $alterou) {
                 $this->session->set_flashdata("sucesso", "Uma nova senha foi enviada para: " . $usuario['email']);
             } else {
-                $this->session->set_flashdata("sucesso", "Problemas no envio do email - tente novamente! ");
+                $this->session->set_flashdata("erro", "Problemas no envio do email - tente novamente! ");
             }
         } else {
-            $this->session->set_flashdata("sucesso", "Não foi encontrado usuario com os dados informados!");
+            $this->session->set_flashdata("erro", "Não foi encontrado usuario com os dados informados!");
         }
 
         redirect("usuario/recuperasenha");
