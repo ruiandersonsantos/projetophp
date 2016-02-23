@@ -14,17 +14,8 @@
         <?php if (!$this->session->userdata("usuario_logado")) : ?>
             <form class="form-horizontal" id="form_login" method="post" action="logar">
                 <div class="row">
-
-                    <?php if($this->session->flashdata("error")) :?>
-                    <h4 class="alert alert-danger alert-dismissible">
-                        <button type="button" class="close" data-dismiss="alert">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <?= $this->session->flashdata("error") ?>
-                    </h4>
-                    <?php endif?>
-
-                    <div id="tituloLogin" name="tituloLogin"><h1>Login do sistema</h1></div>
+                    <?php include("mensagem.php") ?>
+                  <div id="tituloLogin" name="tituloLogin"><h1>Login do sistema</h1></div>
 
                     <div class="form-group-lg">
                         <div>

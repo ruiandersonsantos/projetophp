@@ -1,5 +1,4 @@
 <?php
-
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 if (!defined('BASEPATH'))
@@ -12,13 +11,53 @@ class Usuario extends CI_Controller {
     }
 
     public function recuperasenha() {
+      
         $this->load->view('adm/recuperasenha');
+    }
+
+    public function alterasenha() {
+
+        autoriza();
+        $this->load->view('adm/alterasenha');
+    }
+
+    public function trocarsenha() {
+        $this->load->model("usuarios_model");
+
+        $email = $this->input->post("email");
+        $senha = $this->input->post("senha");
+
+        $usuario = $this->usuarios_model->logarNoSitema($email, $senha);
+
+        if ($usuario) {
+
+            $novasenha = $this->input->post("novasenha");
+            $confnovasenha = $this->input->post("confnovasenha");
+
+            if ($novasenha === $confnovasenha) {
+
+                //passando senha para atributo do objeto
+                $usuario['senha'] = md5($novasenha);
+                //alterando no banco
+                $alterou = $this->usuarios_model->alteraSenha($usuario);
+
+                if ($alterou) {
+                    $this->session->set_flashdata("sucesso", "Alteração efetuada com sucesso!");
+                }
+            } else {
+                $this->session->set_flashdata("erro", "Senha e confirmação estão diferentes!");
+            }
+        } else {
+            $this->session->set_flashdata("erro", "Senha atual não está correta!");
+        }
+
+        redirect('usuario/alterasenha');
     }
 
     public function logar() {
 
         $this->load->model("usuarios_model");
-        
+
         $email = $this->input->post("email");
         $senha = $this->input->post("senha");
 
@@ -28,7 +67,7 @@ class Usuario extends CI_Controller {
             $this->session->set_userdata("usuario_logado", $usuario);
             $this->session->set_flashdata("sucesso", "Seja bem vindo ao painel de controle!");
         } else {
-            $this->session->set_flashdata("error", "Usuario e ou senha invalidos");
+            $this->session->set_flashdata("erro", "Usuario e ou senha invalidos");
         }
 
 

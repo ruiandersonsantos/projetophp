@@ -36,6 +36,7 @@
                         <li><a href="produto.php">Produto</a></li>
                         <li><a href="#">Plano</a></li>
                         <li><a href="#">Designer</a></li>
+                        <li><a href="<?= base_url("index.php/usuario/alterasenha")?>">Alterar Senha</a></li>
                         <li><a href="<?= base_url("index.php/usuario/sair")?>">Sair</a></li>
                     </ul>
                     

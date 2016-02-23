@@ -1,17 +1,17 @@
- <?php if($this->session->userdata("usuario_logado")) : ?>
-    <?php include("cabecalho.php")?>
- <?php endif?>
+<?php if ($this->session->userdata("usuario_logado")) : ?>
+    <?php include("cabecalho.php") ?>
+<?php endif ?>
 
- <?php if(!$this->session->userdata("usuario_logado")) : ?>
-    <?php include("cabecalhosemmenu.php")?>
- <?php endif?>
+<?php if (!$this->session->userdata("usuario_logado")) : ?>
+    <?php include("cabecalhosemmenu.php") ?>
+<?php endif ?>
 
 <section class="sessao_cadastroCorretor" style="margin-top: 90px; text-align: center;" >
     <div class="container">
-         <h1> <?= $this->session->flashdata("sucesso")?></h1>
-         <form class="form-horizontal" id="form_login" method="post" action="reenviandoSenha">
+      
+        <form class="form-horizontal" id="form_login" method="post" action="reenviandoSenha">
             <div class="row">
-
+                <?php include("mensagem.php") ?>
                 <div id="tituloLogin" name="tituloLogin"><h1>Recuperar Senha</h1></div>
 
                 <div class="form-group-lg">
@@ -43,4 +43,4 @@
 
     </div>
 </section>
-<?php include("rodape.php")?>
+<?php include("rodape.php") ?>
