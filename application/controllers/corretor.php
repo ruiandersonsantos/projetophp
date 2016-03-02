@@ -78,6 +78,8 @@ class Corretor extends CI_Controller {
         //$this->load->view('corretor/resposta');
         //$this->load->view('/');
         redirect('corretor/adm');
+        
+           
     }
 
 }

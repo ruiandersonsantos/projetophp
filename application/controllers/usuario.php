@@ -99,7 +99,18 @@ class Usuario extends CI_Controller {
             $usuario['senha'] = md5($senha);
 
             //montando mensagem (será melhorado em arquivo externo na aula explica)
-            $msg = "<html> Sua nova senha é " . $senha . ". Efetue a alteração para sua preferencia no menu alrerar senha! </html>";
+            //$msg = "<html> Sua nova senha é " . $senha . ". Efetue a alteração para sua preferencia no menu alrerar senha! </html>";
+            
+            $dadosmensagem = array(
+                
+                "nome" =>  $usuario['email'],
+                "senha" => $senha,
+                "site" => ""
+                   
+            );
+            
+            $dados = array("mensagem" => $dadosmensagem);
+            $msg = $this->load->view("adm/mensagemrecuperasenha.php", $dados, TRUE);
 
             //Chamando metodo que envia email
             $retorno = $this->email_model->enviaEmail($usuario['email'], "Recuperação de Senha", $msg);
