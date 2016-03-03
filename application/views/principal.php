@@ -92,9 +92,9 @@
         <!-- produtos -->
 
         <section class="espacamentoSuperior produtos cyan lighten-5">
-            <div class="container div_container col s12 m12 l12" id="container">
+            <div class="container div_container col s12 m12 l12">
                 <div class="row">
-                    <div id="titulo_produtos">
+                    <div id="div_titulo_produtos">
                         <h3 class="center-align">Produtos</h3>
                         <p class="flow-text  center-align">texto do produto
                         </p>
@@ -181,7 +181,7 @@
         <section class="planos  blue lighten-4">
             <div class="container div_container">
                 <div class="row">
-                    <div class="col s12">
+                    <div class="col s12" id="div_titulo_planos">
                         <h2 class="center-align">Planos</h2>
                         <p class="flow-text center-align">Conheça abaixo as formas de contrataçao</p>
                     </div>
@@ -267,9 +267,9 @@
 
         <!-- sobre-o-corretor -->
         <section class="sobre-o-corretor cyan lighten-5"> 
-            <div class="container" id="divContainer_corretor">
+            <div class="container">
                 <div class="row">
-                    <div class="col s12">
+                    <div class="col s12" id="div_titulo_corretor">
 
                         <h2 class="center-align">Corretor</h2>
                         <p class="flow-text center-align"><?=$corretor['slogan']?></p>
@@ -302,7 +302,7 @@
         <section class="fale-conosco  blue lighten-4">
             <div class="container div_container">
                 <div class="row">
-                    <div class="col s12">
+                    <div class="col s12" id="div_titulo_faleconosco">
 
                         <h2 class="center-align">Fale Conosco</h2>
                         <p class="flow-text center-align">Preencha o formulário para entrar em contato!</p>
@@ -362,6 +362,10 @@
                                 <a href="<?=$corretor['linkgoogle']?>" class=" " target="_blank"><i class="material-icons"><img src="img/redeSocial/google_plus.png"/></i></a>
                                 <a href="<?=$corretor['linkfacebook']?>" class="" target="_blank"><i class="material-icons"><img src="img/redeSocial/facebook.png"/></i></a>
                                 <a href="#" class="btn-floating  blue lighten-3" target="_blank"><i class="material-icons" style="margin-top: 0px;"><img src="img/redeSocial/twitter2.png"/></i></a>
+                                
+                                <div class="" id="div_link_rodape">
+                                <a  href="http://localhost:8000/projetophp/index.php/usuario/login" class="grey-text text-lighten-3" target="_blank"> <i class="small material-icons">settings</i></a>
+                                </div>
 
                             </div>
                             <div class="col s12 offset-m1 m12 l5" id="div_link_rodape">
@@ -369,6 +373,7 @@
                                 <a id="link_rodape_planos" href="#" class="grey-text text-lighten-3">Planos</a><span class="white-text">|</span>
                                 <a id="link_rodape_corretor" href="#" class="grey-text text-lighten-3">Sobre o Corretor</a><span class="white-text">|</span>
                                 <a id="link_rodape_faleConosco" href="#" class="grey-text text-lighten-3">Fale Conosco</a>
+                                
                             </div> 
 
                             <div class="col offset-s1 s12 offset-m3 m12 l4" id="div_contato_rodape">

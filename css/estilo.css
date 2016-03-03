@@ -52,8 +52,8 @@
 
 /* sessao produtos */
 /* Configura o padding da sessao produtos */
-#titulo_produtos {
-    padding-top: 50px;
+#div_titulo_produtos, #div_titulo_planos, #div_titulo_corretor, #div_titulo_faleconosco {
+    padding-top: 20px;
 }
 
 /* logomarca operadoras */
@@ -111,9 +111,6 @@ img.responsive-img {
 
 
 /* sessao sobre o corretor */
-#divContainer_corretor {
-    padding-top: 40px;
-}
 
 
 #card_corretor {
