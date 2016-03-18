@@ -16,7 +16,9 @@
 | environments.
 |
 */
-$config['base_url'] = 'http://www.ruianderson.com.br/';
+
+//$config['base_url'] = 'http://www.ruianderson.com.br/';
+$config['base_url'] = 'http://localhost:8080/projetophp/';
 
 /*
 |--------------------------------------------------------------------------

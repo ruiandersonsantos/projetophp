@@ -34,7 +34,7 @@
                         <li  class="active"><a href="<?= base_url("/index.php/usuario/login") ?>">Home</a></li>
                         <li><a href="<?= base_url("/index.php/corretor/adm") ?>">Corretor</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Produtos <span class="caret"></span></a>
+                            <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Produtos <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="<?= site_url("/produto/cadastrar") ?>">Cadastrar</a></li>
                                 <li><a href="<?= site_url("/produto/listar") ?>">Listar</a></li>

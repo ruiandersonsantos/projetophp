@@ -10,12 +10,47 @@ class Produtos_model extends CI_Model {
     }
 
     public function alterarProduto($produto) {
+        
+        $produtoantes = $this->buscarPorId($produto['id']);
+        
+        $arquivogrande = $produtoantes['img_full_path'];
+        $thumbs = $produtoantes['img_path']."thumbs/".$produtoantes['img_nome'];
+        
         $this->db->where('id', $produto['id']);
-        return $this->db->update("produtos", $produto);
+        if($this->db->update("produtos", $produto)){
+            unlink($arquivogrande);
+            unlink($thumbs);
+            return true;
+        } else {
+            return false;
+            
+        }
     }
-    
-    public function listaProduto(){
+
+    public function listaProduto() {
         return $this->db->get("produtos")->result_array();
+    }
+
+    public function buscarPorId($id) {
+
+        $this->db->where('id', $id);
+        return $this->db->get("produtos")->row_array();
+    }
+
+    public function delete($produto) {
+        
+        $arquivogrande = $produto['img_full_path'];
+        $thumbs = $produto['img_path']."thumbs/".$produto['img_nome'];
+        
+        $this->db->where('id', $produto['id']);
+        if ($this->db->delete("produtos", $produto)) {
+            unlink($arquivogrande);
+            unlink($thumbs);
+            return true;
+        } else {
+            return false;
+            
+        }
     }
 
 }

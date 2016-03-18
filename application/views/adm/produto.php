@@ -4,7 +4,7 @@
 
 <section class="sessao_cadastroCorretor" style="margin-top: 90px; text-align: center;" >
     <div class="container">
-        <form id="formUpload" method="post" action="../produto/enviar" enctype="multipart/form-data">
+        <form id="formUpload" method="post" action="../produto/salvar" enctype="multipart/form-data">
             <div class="row">
 
                 <div class="panel panel-success">

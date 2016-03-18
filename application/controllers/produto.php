@@ -10,7 +10,7 @@ class Produto extends CI_Controller {
 
     public function cadastrar() {
         $this->load->model("produtos_model");
-        
+
         $produto = array(
             "id" => '',
             "titulo" => '',
@@ -23,24 +23,44 @@ class Produto extends CI_Controller {
             'img_largura' => 0,
             'img_altura' => 0,
             'img_tipo' => '',
-            'status' => 0
+            'status' => 0,
+            
         );
 
         $dados = array("produto" => $produto);
         $this->load->view('adm/produto', $dados);
     }
-    
+
     public function listar() {
-         $this->load->model("produtos_model");
-         $retorno = $this->produtos_model->listaProduto();
-         $listaprodutos = array("lista" => $retorno);
-         
-         $this->load->view('adm/listaproduto', $listaprodutos);
-         
-          
+        $this->load->model("produtos_model");
+        $retorno = $this->produtos_model->listaProduto();
+        $listaprodutos = array("lista" => $retorno);
+
+        $this->load->view('adm/listaproduto', $listaprodutos);
     }
 
-    public function enviar() {
+    public function deletar() {
+        $this->load->model("produtos_model");
+        $id = $this->input->get("id");
+        $produto = $this->produtos_model->buscarPorId($id);
+
+        $retorno = $this->produtos_model->delete($produto);
+
+        redirect('produto/listar');
+    }
+    
+    public function prealterar(){
+        
+        $this->load->model("produtos_model");
+        $id = $this->input->get("id");
+        $produto = $this->produtos_model->buscarPorId($id);
+
+        $dados = array("produto" => $produto);
+        $this->load->view('adm/produto', $dados);
+        
+    }
+
+    public function salvar() {
 
         $this->load->model("produtos_model");
 
@@ -51,8 +71,10 @@ class Produto extends CI_Controller {
         $config['encrypt_name'] = true;
 
         $this->load->library('upload', $config);
-
-        if (!$this->upload->do_upload('inputFile')) {
+        
+        
+        
+        if (!$this->upload->do_upload("inputFile")) {
             echo $this->upload->display_errors('', '');
         } else {
 
@@ -66,41 +88,79 @@ class Produto extends CI_Controller {
                     'source_image' => $data['full_path'],
                     'new_image' => './imagens/thumbs',
                     'maintain_ration' => true,
-                    'width' => 150,
-                    'height' => 100
+                    'width' => 60,
+                    'height' => 30
                 );
 
                 // redimencionando
                 $this->load->library('image_lib', $config);
                 $this->image_lib->resize();
 
-                //preenchendo objeto para gravar no bd
-                $produto = array(
-                    "titulo" => $this->input->post("titulo"),
-                    "descricao" => $this->input->post("descricao"),
-                    'img_nome' => $data['file_name'],
-                    'img_path' => $data['file_path'],
-                    'img_full_path' => $data['full_path'],
-                    'img_ext' => $data['file_ext'],
-                    'img_size' => $data['file_size'],
-                    'img_largura' => $data['image_width'],
-                    'img_altura' => $data['image_height'],
-                    'img_tipo' => $data['image_type'],
-                    'status' => 0
-                );
-
-                $retorno = $this->produtos_model->insereProduto($produto);
-
-                if ($retorno) {
-                    $this->session->set_flashdata("sucesso", "Produto gravado com sucesso.");
-                   
+                //preenchendo objeto para gravar no bd (gravação
+                
+                $id = $this->input->post("id");
+                if($id === '') {
+                    $this->gravar($data);
+                    
                 } else {
-                    $this->session->set_flashdata("error", "Problemas na gravação do produto.");
+                    $this->alterar($data);
                 }
-               
-                 redirect('produto/cadastrar');
             }
         }
+    }
+    
+    private function alterar($data){
+         $produto = array(
+                        "id" => $this->input->post("id"),
+                        "titulo" => $this->input->post("titulo"),
+                        "descricao" => $this->input->post("descricao"),
+                        'img_nome' => $data['file_name'],
+                        'img_path' => $data['file_path'],
+                        'img_full_path' => $data['full_path'],
+                        'img_ext' => $data['file_ext'],
+                        'img_size' => $data['file_size'],
+                        'img_largura' => $data['image_width'],
+                        'img_altura' => $data['image_height'],
+                        'img_tipo' => $data['image_type'],
+                        'status' => 0
+                    );
+
+                    $retorno = $this->produtos_model->alterarProduto($produto);
+
+                    if ($retorno) {
+                        $this->session->set_flashdata("sucesso", "Produto alterado com sucesso.");
+                    } else {
+                        $this->session->set_flashdata("error", "Problemas na alteração do produto.");
+                    }
+
+                    redirect('produto/listar');
+    }
+
+
+    private function gravar($data){
+        $produto = array(
+                        "titulo" => $this->input->post("titulo"),
+                        "descricao" => $this->input->post("descricao"),
+                        'img_nome' => $data['file_name'],
+                        'img_path' => $data['file_path'],
+                        'img_full_path' => $data['full_path'],
+                        'img_ext' => $data['file_ext'],
+                        'img_size' => $data['file_size'],
+                        'img_largura' => $data['image_width'],
+                        'img_altura' => $data['image_height'],
+                        'img_tipo' => $data['image_type'],
+                        'status' => 0
+                    );
+
+                    $retorno = $this->produtos_model->insereProduto($produto);
+
+                    if ($retorno) {
+                        $this->session->set_flashdata("sucesso", "Produto gravado com sucesso.");
+                    } else {
+                        $this->session->set_flashdata("error", "Problemas na gravação do produto.");
+                    }
+
+                    redirect('produto/cadastrar');
     }
 
 }
