@@ -10,7 +10,7 @@
             <tr>
                 <td><?= $produto["id"]?></td>
                 <td><?= $produto["titulo"]?></td>
-                <td><img src="<?= site_url("imagens/")."/thumbs/".$produto["img_nome"] ?>"></td>
+                <td><img src="<?= base_url("imagens/")."/thumbs/".$produto["img_nome"] ?>"></td>
             </tr>
         <?php endforeach ?>
         </table>
