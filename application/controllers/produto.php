@@ -66,10 +66,10 @@ class Produto extends CI_Controller {
        
        $this->produtos_model->ativarProduto($produto);
        
-        $retorno = $this->produtos_model->listaProduto();
-        $listaprodutos = array("lista" => $retorno);
+        //$retorno = $this->produtos_model->listaProduto();
+        //$listaprodutos = array("lista" => $retorno);
 
-        $this->load->view('adm/listaproduto', $listaprodutos);
+        //$this->load->view('adm/listaproduto', $listaprodutos);
         
     }
     

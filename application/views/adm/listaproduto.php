@@ -20,15 +20,14 @@
                 </td>
                 
                 <td>
-                    <a id="<?= base_url("/index.php/produto/ativar?id=".$produto["id"]) ?>" class="scp_btn btn btn-primary" role="button">
-                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                        Ativar
+                    <a id="btn<?= $produto["id"]?>" itemid= "<?= base_url("/index.php/produto/ativar?id=".$produto["id"]) ?>"  
+                       class="scp_btn btn <?= $produto["status"] == 0 ? "btn-primary" : "btn-success" ?>" role="button">
+                         <?= $produto["status"] == 0 ? "Ativar" : "Desativar" ?>
                     </a>
                 </td>
                 
                 <td>
                     <a href="<?= base_url("/index.php/produto/deletar?id=".$produto["id"]) ?>" class="btn btn-danger" role="button">
-                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
                         Excluir
                     </a>
                 </td>
