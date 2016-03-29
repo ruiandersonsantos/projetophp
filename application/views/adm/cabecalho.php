@@ -9,7 +9,7 @@
         <link href="<?= base_url("css_b/bootstrap.min.css") ?>" rel="stylesheet">  
         <!-- CSS personalizado -->
         <link href = "<?= base_url("css_b/estilo.css") ?>" rel = "stylesheet" media = "screen">
-
+        
         <title>Area Administrativa</title>
     </head>
 

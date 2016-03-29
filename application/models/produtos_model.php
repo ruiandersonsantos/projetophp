@@ -8,7 +8,11 @@ class Produtos_model extends CI_Model {
     public function insereProduto($produto) {
         return $this->db->insert("produtos", $produto);
     }
-
+    
+    public function ativarProduto($produto) {
+        $this->db->query("UPDATE produtos SET status='".$produto["status"]."' WHERE id='".$produto["id"]."' ");
+    }
+    
     public function alterarProduto($produto) {
         
         $produtoantes = $this->buscarPorId($produto['id']);

@@ -49,6 +49,30 @@ class Produto extends CI_Controller {
         redirect('produto/listar');
     }
     
+     public function ativar(){
+        
+       $this->load->model("produtos_model");
+       $id = $this->input->get("id");
+       $status = $this->input->get("status");
+       
+       $produto = $this->produtos_model->buscarPorId($id);
+       
+       if($status == 1){
+           $produto['status'] = 0;
+       }else{
+           $produto['status'] = 1;
+       }
+       
+       
+       $this->produtos_model->ativarProduto($produto);
+       
+        $retorno = $this->produtos_model->listaProduto();
+        $listaprodutos = array("lista" => $retorno);
+
+        $this->load->view('adm/listaproduto', $listaprodutos);
+        
+    }
+    
     public function prealterar(){
         
         $this->load->model("produtos_model");

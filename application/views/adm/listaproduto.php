@@ -11,24 +11,24 @@
                 <td><?= $produto["id"]?></td>
                 <td><?= $produto["titulo"]?></td>
                 <td><img src="<?= base_url("imagens/")."/thumbs/".$produto["img_nome"] ?>"></td>
-                <td><?= $produto["status"]?></td>
+                <td id="status<?= $produto["id"]?>"><?= $produto["status"]?></td>
                 <td>
-                   <a href="<?= base_url("/produto/prealterar?id=".$produto["id"]) ?>" class="btn btn-warning" role="button">
-                        <span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                   <a href="<?= base_url("/index.php/produto/prealterar?id=".$produto["id"]) ?>" class="btn btn-warning" role="button">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                         Atualizar
                    </a>
                 </td>
                 
                 <td>
-                    <a href="#" class="btn btn-primary" role="button">
-                        <span class="glyphicon glyphicon glyphicon glyphicon-ok" aria-hidden="true"></span>
+                    <a id="<?= base_url("/index.php/produto/ativar?id=".$produto["id"]) ?>" class="scp_btn btn btn-primary" role="button">
+                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                         Ativar
                     </a>
                 </td>
                 
                 <td>
-                    <a href="<?= base_url("/produto/deletar?id=".$produto["id"]) ?>" class="btn btn-danger" role="button">
-                        <span class="glyphicon glyphicon glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    <a href="<?= base_url("/index.php/produto/deletar?id=".$produto["id"]) ?>" class="btn btn-danger" role="button">
+                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
                         Excluir
                     </a>
                 </td>
