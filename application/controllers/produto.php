@@ -52,16 +52,22 @@ class Produto extends CI_Controller {
      public function ativar(){
         
        $this->load->model("produtos_model");
+       
        $id = $this->input->get("id");
        $status = $this->input->get("status");
+       $ordem = $this->input->get("ordem");
        
        $produto = $this->produtos_model->buscarPorId($id);
        
        if($status == 1){
            $produto['status'] = 0;
+           $produto['ordem'] = 0;
        }else{
            $produto['status'] = 1;
+           $produto['ordem'] = $ordem;
        }
+       
+       
        
        
        $this->produtos_model->ativarProduto($produto);
@@ -146,7 +152,8 @@ class Produto extends CI_Controller {
                         'img_largura' => $data['image_width'],
                         'img_altura' => $data['image_height'],
                         'img_tipo' => $data['image_type'],
-                        'status' => 0
+                        'status' => 0,
+                        'ordem' => 0
                     );
 
                     $retorno = $this->produtos_model->alterarProduto($produto);
@@ -173,7 +180,8 @@ class Produto extends CI_Controller {
                         'img_largura' => $data['image_width'],
                         'img_altura' => $data['image_height'],
                         'img_tipo' => $data['image_type'],
-                        'status' => 0
+                        'status' => 0,
+                        'ordem' => 0
                     );
 
                     $retorno = $this->produtos_model->insereProduto($produto);

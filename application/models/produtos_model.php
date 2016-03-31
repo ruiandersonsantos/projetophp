@@ -10,7 +10,7 @@ class Produtos_model extends CI_Model {
     }
     
     public function ativarProduto($produto) {
-        $this->db->query("UPDATE produtos SET status='".$produto["status"]."' WHERE id='".$produto["id"]."' ");
+        $this->db->query("UPDATE produtos SET ordem =".$produto["ordem"].", status='".$produto["status"]."' WHERE id='".$produto["id"]."' ");
     }
     
     public function alterarProduto($produto) {
@@ -32,7 +32,8 @@ class Produtos_model extends CI_Model {
     }
 
     public function listaProduto() {
-        return $this->db->get("produtos")->result_array();
+        //return $this->db->get("produtos")->result_array();
+        return $this->db->query("select * from produtos order by ordem desc")->result_array();
     }
 
     public function buscarPorId($id) {
