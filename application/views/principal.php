@@ -364,7 +364,7 @@
                                 <a href="#" class="btn-floating  blue lighten-3" target="_blank"><i class="material-icons" style="margin-top: 0px;"><img src="img/redeSocial/twitter2.png"/></i></a>
                                 
                                 <div class="" id="div_link_rodape">
-                                <a  href="http://localhost:8000/projetophp/index.php/usuario/login" class="grey-text text-lighten-3" target="_blank"> <i class="small material-icons">settings</i></a>
+                                <a  href="<?= base_url("/index.php/usuario/login") ?>" class="grey-text text-lighten-3" target="_blank"> <i class="small material-icons">settings</i></a>
                                 </div>
 
                             </div>

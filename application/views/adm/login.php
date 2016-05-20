@@ -48,6 +48,8 @@
                     </div>
 
                 </div>
+                
+                <a href="<?= base_url("/index.php/usuario/logarFacebook") ?>">Login com Facebook</a>
             </form>
         <?php endif ?>
     </div>

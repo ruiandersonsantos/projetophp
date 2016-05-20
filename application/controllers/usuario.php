@@ -1,4 +1,5 @@
 <?php
+
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 if (!defined('BASEPATH'))
@@ -6,12 +7,30 @@ if (!defined('BASEPATH'))
 
 class Usuario extends CI_Controller {
 
+    private $uid;
+    private $access_token;
+
+    public function __construct() {
+        parent::__construct();
+
+        $this->load->library("facebook", array(
+            "appId" => "1620118844976007",
+            "secret" => "b15a46f284f9b9e1d00c175132654c0e"));
+        
+       
+        $this->uid = $this->facebook->getUser();
+
+        $this->access_token = $this->facebook->getAccessToken();
+
+        $this->facebook->setAccessToken($this->access_token);
+    }
+
     public function login() {
         $this->load->view('adm/login');
     }
 
     public function recuperasenha() {
-      
+
         $this->load->view('adm/recuperasenha');
     }
 
@@ -52,6 +71,33 @@ class Usuario extends CI_Controller {
         }
 
         redirect('usuario/alterasenha');
+    }
+
+    public function logarFacebook() {
+
+        if ($this->uid) {
+            
+          
+            try {
+                $usuario = $this->facebook->api('/me?fields=email,first_name,last_name,gender,name,id,birthday,picture');
+               $usuario['senha'] = '0000';
+                
+                $this->session->set_userdata("usuario_logado", $usuario);
+                $this->session->set_flashdata("sucesso", "Seja bem vindo ao painel de controle!");
+                
+            } catch (Exception $exc) {
+                $this->uid = NULL;
+                echo $exc->getTraceAsString();
+            }
+        } else {
+
+            die("<script>top.location='" . $this->facebook->getLoginUrl(array(
+                        "scope" => "email,user_likes,public_profile,user_friends",
+                        "redirect_url" => site_url("/")
+                    )) . "'</script>");
+        }
+        
+        redirect('usuario/login');
     }
 
     public function logar() {
@@ -100,15 +146,13 @@ class Usuario extends CI_Controller {
 
             //montando mensagem (será melhorado em arquivo externo na aula explica)
             //$msg = "<html> Sua nova senha é " . $senha . ". Efetue a alteração para sua preferencia no menu alrerar senha! </html>";
-            
+
             $dadosmensagem = array(
-                
-                "nome" =>  $usuario['email'],
+                "nome" => $usuario['email'],
                 "senha" => $senha,
                 "site" => ""
-                   
             );
-            
+
             $dados = array("mensagem" => $dadosmensagem);
             $msg = $this->load->view("adm/mensagemrecuperasenha.php", $dados, TRUE);
 
