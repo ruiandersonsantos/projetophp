@@ -46,7 +46,8 @@
 
                         <li><a href="#">Plano</a></li>
                         <li><a href="#">Designer</a></li>
-                         <?php if ($this->session->userdata("usuario_logado")['senha'] != '0000') : ?>
+                         <?php if ($this->session->userdata("usuario_logado")['senha'] != '0000'
+                                 or $this->session->userdata("usuario_logado")['senha'] != '1111') : ?>
                             <li><a href="<?= base_url("index.php/usuario/alterasenha") ?>">Alterar Senha</a></li>
                          <?php endif ?>
                         <li><a href="<?= base_url("index.php/usuario/sair") ?>">Sair</a></li>
@@ -54,6 +55,12 @@
                     <?php if ($this->session->userdata("usuario_logado")['senha'] == '0000') : ?>
                         <div>
                             <img style="height: 35px; float: right; margin-top: 8px;" src="<?= $this->session->userdata("usuario_logado")['picture']['data']['url'] ?>"/>
+                        </div>
+                    <?php endif ?>
+                    
+                    <?php if ($this->session->userdata("usuario_logado")['senha'] == '1111') : ?>
+                        <div>
+                            <img style="height: 35px; float: right; margin-top: 8px;" src="<?= $this->session->userdata("usuario_logado")['picture'] ?>"/>
                         </div>
                     <?php endif ?>
                     <div>

@@ -26,7 +26,9 @@ class Usuario extends CI_Controller {
     }
 
     public function login() {
-        $this->load->view('adm/login');
+        //$this->load->view('adm/login');
+        $contents['login_url'] = $this->googleplus->loginURL();
+	$this->load->view('adm/login',$contents);
     }
 
     public function recuperasenha() {
@@ -72,6 +74,33 @@ class Usuario extends CI_Controller {
 
         redirect('usuario/alterasenha');
     }
+    
+    public function logarGoogle()
+	{
+		
+		if($this->session->userdata('usuario_logado') == true){
+			redirect('usuario/login');
+		}
+		
+		if (isset($_GET['code'])) {
+			
+			$this->googleplus->getAuthenticate();
+			$this->session->set_userdata('login',true);
+                        $usuario = array();
+                        $usuario = $this->googleplus->getUserInfo();
+                        $usuario['senha'] = '1111';
+			$this->session->set_userdata('usuario_logado',$usuario);
+                        $this->session->set_flashdata("sucesso", "Seja bem vindo ao painel de controle!");
+			redirect('usuario/login');
+			
+		} 
+		
+                //redirect('usuario/login');
+                
+		$contents['login_url'] = $this->googleplus->loginURL();
+		$this->load->view('adm/login',$contents);
+		
+	}
 
     public function logarFacebook() {
 
