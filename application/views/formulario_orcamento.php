@@ -7,8 +7,8 @@
         <title>Planos de Saúde</title>
 
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection">
-        <link type="text/css" rel="stylesheet" href="css/estilo.css"/>
+        <link type="text/css" rel="stylesheet" href=<?= base_url("css/materialize.min.css") ?>  media="screen,projection">
+        <link type="text/css" rel="stylesheet" href=<?= base_url("css/estilo.css") ?>>
 
     </head>
 
@@ -18,14 +18,14 @@
             <nav class="blue darken-3">
 
                 <div class="nav-wrapper">
-                    <a id="div" href="/projetophp" class="brand-logo">Darlan Luiz</a>
+                    <a id="div" href="<?= base_url() ?>" class="brand-logo"><?=$corretor['titulosite']?></a>
                     <a href="#" data-activates="mobile-demo" class="button-collapse">
                         <i class="mdi-navigation-menu"></i>
                     </a>
 
                     <!-- menu -->
                     <ul class="right hide-on-med-and-down" >
-                        <li class="active"><a id="menuMobile_home" href="/projetophp">Home</a></li>
+                        <li class="active"><a id="menuMobile_home" href="<?= base_url() ?>">Home</a></li>
                         <li class="no-active"><a href="#">Produtos</a></li>
                         <li class="no-active"><a href="#">Planos</a></li>
                         <li class="no-active"><a href="#">Sobre o Corretor</a></li>
@@ -67,52 +67,48 @@
                             <!-- Card formulario -->
                             <div class="card-action ">
                                 <div class="row">
-                                    <form class="col s12 m12 l12">
+                                    <form class="col s12 m12 l12" method="post">
                                         <div class="row"> 
                                             <div class="input-field col s12 m12 l8 cadastro">
-                                                <input  id="nome" type="text" class="validate">
+                                                <input required=""   id="nome" type="text" class="validate">
                                                 <label for="nome">Nome *</label>
                                             </div>
 
                                             <div class="input-field col s12 m12 l4 cadastro">
-                                                <input  id="telefone" type="text" class="validate">
+                                                <input required=""  id="telefone" type="text" class="validate">
                                                 <label for="telefone">Telefone *</label>
                                             </div>    
                                         </div>
 
                                         <div class="row">                                          
                                             <div class="input-field col s12 m12 l8 cadastro">
-                                                <input id="email" type="email" class="validate">
+                                                <input required="" id="email" type="email" class="validate">
                                                 <label for="email">Email *</label>
                                             </div>
                                             <div class="input-field col s12 m12 l4 cadastro">
-                                                <input id="cidade" type="text" class="validate">
+                                                <input required="" id="cidade" type="text" class="validate">
                                                 <label for="cidade">Cidade/Estado *</label>
                                             </div>                                           
                                         </div>
 
-                                    </form>
-                                </div>
-
-
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <select class="select_formulario">
-                                            <option value="" disabled selected>Selecione...</option>
-                                            <option value="Ind_Familiar">Plano Individual/Familiar</option>
-                                            <option value="empresarial">Plano Empresarial</option>
-                                            <option value="adesao">Plano por Adesão</option>
-                                            <option value="odontologico">Plano Odontológico</option>
-                                        </select>
-                                        <label>Selecione o tipo de Plano</label>
-                                    </div>
-                                </div>
-                                <!-- ./Card formulario 1 -->
-
-                                <!-- Card formulario 2 -->
-                                <div class="row">
-                                    <form action="#" class="col s12 m12 l12">
-                                        <h6>Selecione um plano ou mais para receber informações:</h6>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <select class="select_formulario">
+                                                    <option value="0" disabled selected>Selecione...</option>
+                                                    <option value="1">Plano Individual/Familiar</option>
+                                                    <option value="2">Plano Empresarial</option>
+                                                    <option value="3">Plano por Adesão</option>
+                                                    <option value="4">Plano Odontológico</option>
+                                                </select>
+                                                <label>Selecione o tipo de Plano</label>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        
+                                        
+                                        
+                                          <h6>Selecione um plano ou mais para receber informações:</h6>
                                         <div class="row" id="divForm2_convenio">
                                             <p class="col s12 m12 l3">
                                                 <input type="checkbox" class="filled-in" id="check_amil"/>
@@ -130,8 +126,8 @@
                                             </p>
 
                                             <p class="col s12 m12 l3">
-                                                <input type="checkbox" class="filled-in" id="check_sulAmerica"/>
-                                                <label for="check_sulAmerica">Sul America</label>
+                                                <input type="checkbox" class="filled-in" id="check_cemeru"/>
+                                                <label for="check_cemeru">Cemeru</label>
                                             </p>
                                         </div>
 
@@ -151,8 +147,8 @@
                                             </p>
 
                                             <p class="col s12 m12 l3">
-                                                <input type="checkbox" class="filled-in" id="check_qualicorp"/>
-                                                <label for="check_qualicorp">Qualicorp</label>
+                                                <input type="checkbox" class="filled-in" id="check_outros"/>
+                                                <label for="check_outros">Outros</label>
                                             </p>
                                         </div>
 
@@ -221,9 +217,13 @@
                                                 <button type="submit" class="waves-effect waves-light btn">Enviar</button>
                                             </div>
                                         </div>
+
                                     </form>
                                 </div>
-                                <!-- ./card formulario 2 -->
+
+
+
+                                
 
                             </div>
                         </div>
@@ -241,57 +241,57 @@
                             <!-- div card convenio -->
                             <div class="card-action col s12 m12 l12" id="divAction_convenio">
                                 <div class="row" >
-                                    <div class=" col s12 m6  l12" id="divImage_convenio">
+                                    <div class="col s12 m6 l12 divImage_convenio" id="divImage_convenio_amil">
                                         <div class="card-image center-align z-depth-1" >
-                                            <img class="responsive-img" id="img_convenio" src="img/logo_convenio/amil.png">
+                                            <img class="responsive-img" id="img_convenio" src=<?= base_url("img/logo_convenio/amil.png") ?>>
                                         </div>
                                     </div>
 
-                                    <div class=" col s12 m6 l12" id="divImage_convenio">
+                                    <div class="col s12 m6 l12 divImage_convenio" id="divImage_convenio_dix">
                                         <div class="card-image center-align z-depth-1" >
-                                            <img class="responsive-img" id="img_convenio" src="img/logo_convenio/dix .jpg">
+                                            <img class="responsive-img" id="img_convenio" src=<?= base_url("img/logo_convenio/dix.jpg") ?>>
                                         </div>
                                     </div>
 
-                                    <div class=" col s12 m6 l12"  id="divImage_convenio">
+                                    <div class="col s12 m6 l12 divImage_convenio"  id="divImage_convenio_unimed">
                                         <div class="card-image center-align z-depth-1">
-                                            <img class="responsive-img" id="img_convenio" src="img/logo_convenio/unimed.png">
+                                            <img class="responsive-img" id="img_convenio" src=<?= base_url("img/logo_convenio/unimed.png") ?>>
                                         </div>
                                     </div>
 
-                                    <div class=" col s12 m6 l12" id="divImage_convenio">
+                                    <div class="col s12 m6 l12 divImage_convenio" id="divImage_convenio_unifocus">
                                         <div class="card-image center-align z-depth-1">
-                                            <img class="responsive-img" id="img_convenio" src="img/logo_convenio/unifocus.jpg">
+                                            <img class="responsive-img" id="img_convenio" src=<?= base_url("img/logo_convenio/unifocus.jpg") ?>>
                                         </div>
                                     </div>
 
-                                    <div class=" col s12 m6 l12" id="divImage_convenio">
+                                    <div class="col s12 m6 l12 divImage_convenio" id="divImage_convenio_golden">
                                         <div class="card-image center-align z-depth-1">
-                                            <img class="responsive-img" id="img_convenio" src="img/logo_convenio/golden.png">
+                                            <img class="responsive-img" id="img_convenio" src=<?= base_url("img/logo_convenio/golden.png") ?>>
                                         </div>
                                     </div>
 
-                                    <div class=" col s12 m6 l12" id="divImage_convenio">
+                                    <div class="col s12 m6 l12 divImage_convenio" id="divImage_convenio_qualic">
                                         <div class="card-image center-align z-depth-1">
-                                            <img class="responsive-img" id="img_convenio" src="img/logo_convenio/qualicorp.jpg">
+                                            <img class="responsive-img" id="img_convenio" src=<?= base_url("img/logo_convenio/qualicorp.jpg") ?>>
                                         </div>
                                     </div>
 
-                                    <div class=" col s12 m6 l12" id="divImage_convenio">
+                                    <div class="col s12 m6 l12 divImage_convenio" id="divImage_convenio_bradesco">
                                         <div class="card-image center-align z-depth-1">
-                                            <img class="responsive-img" id="img_convenio" src="img/logo_convenio/Bradesco-Saúde.png">
+                                            <img class="responsive-img" id="img_convenio" src=<?= base_url("img/logo_convenio/Bradesco-Saúde.png") ?>>
                                         </div>
                                     </div>
 
-                                    <div class=" col s12 m6 l12" id="divImage_convenio">
+                                    <div class="col s12 m6 l12 divImage_convenio" id="divImage_convenio_sul">
                                         <div class="card-image center-align z-depth-1">
-                                            <img class="responsive-img" id="img_convenio" src="img/logo_convenio/sul_america.png">
+                                            <img class="responsive-img" id="img_convenio" src=<?= base_url("img/logo_convenio/sul_america.png") ?>>
                                         </div>
                                     </div>
 
-                                    <div class=" col s12 offset-m3 m6 l12" id="divImage_convenio">
+                                    <div class="col s12 offset-m3 m6 l12 divImage_convenio" id="divImage_convenio_assim">
                                         <div class="card-image center-align z-depth-1">
-                                            <img class="responsive-img" id="img_convenio" src="img/logo_convenio/assim.png">
+                                            <img class="responsive-img" id="img_convenio" src=<?= base_url("img/logo_convenio/assim.png") ?>>
                                         </div>
                                     </div>
                                 </div>
@@ -312,7 +312,7 @@
                                     <div class="col offset-s3  s12  col offset-m4 m12 l9">
                                         <span class="white-text">
                                             <i id="iconContato_rodape" class="material-icons white-text">phone</i>
-                                            (21)4132-2842
+                                            <?=$corretor['telefone']?>
                                         </span>
                                     </div >
                                 </div>
@@ -321,9 +321,9 @@
                                     <div class="col offset-s3  s12  col offset-m4 m12 l9">
                                         <span class="white-text">
                                             <i id="iconContato_rodape" class="material-icons white-text">stay_current_portrait</i>
-                                            (21)97568-6439
+                                            <?=$corretor['celular']?>
                                         </span>
-                                        <img id="imgWattsApp_rodape" src="img/redeSocial/whatsapp.png"/>
+                                        <img id="imgWattsApp_rodape" src=<?= base_url("img/redeSocial/whatsapp.png") ?>>
                                     </div >
                                 </div>
 
@@ -331,7 +331,7 @@
                                     <div class="col offset-s3  s12  col offset-m4 m12 l9">
                                         <span class="white-text">
                                             <i id="iconContato_rodape" class="material-icons white-text">email</i>
-                                            darlansaude@gmail.com</span>
+                                            <?=$corretor['email']?></span>
                                     </div >
                                 </div>
 
@@ -357,9 +357,9 @@
         </footer>
         <!-- ./rodape -->
 
-        <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-        <script type="text/javascript" src="js/materialize.min.js"></script>
-        <script type="text/javascript" src="js/jscript.js"></script>
+        <script type="text/javascript" src=<?= base_url("js/jquery-2.1.1.min.js")?>></script>
+        <script type="text/javascript" src=<?= base_url("js/materialize.min.js")?>></script>
+        <script type="text/javascript" src=<?= base_url("js/jscript.js")?>></script>
 
     </body>
 </html>

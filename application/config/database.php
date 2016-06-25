@@ -53,15 +53,15 @@ $active_record = TRUE;
 //$db['default']['password'] = '442332si';
 //$db['default']['database'] = 'projetophp';
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '42301886';
-$db['default']['database'] = 'projetpphp';
-
-//$db['default']['hostname'] = 'ruianderson.com.br';
-//$db['default']['username'] = 'ruiand_root';
+//$db['default']['hostname'] = 'localhost';
+//$db['default']['username'] = 'root';
 //$db['default']['password'] = '42301886';
-//$db['default']['database'] = 'ruiand_projetophp';
+//$db['default']['database'] = 'projetpphp';
+
+$db['default']['hostname'] = 'ruianderson.com.br';
+$db['default']['username'] = 'ruiand_root';
+$db['default']['password'] = '42301886';
+$db['default']['database'] = 'ruiand_projetophp';
 
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';

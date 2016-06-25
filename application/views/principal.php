@@ -23,7 +23,7 @@
 
                     <!-- menu -->
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="formulario_orcamento.php">Solicite Orçamento</a></li>
+                        <li><a href="/index.php/formulario/abreformorc">Solicite Orçamento</a></li>
                     </ul>
                     <ul class="right hide-on-med-and-down" id="nav-mobile" >
                         <li><a id="navMobile_produtos" href="#" >Produtos</a></li>
@@ -201,7 +201,7 @@
                                 <p>Os melhores hospitais oferecidos para você e sua família.</p>
                             </div>
                             <div class="card-action">
-                                <a href="formulario_orcamento.html" class="waves-effect waves-light btn">Solicite Orçamento</a>
+                                <a href="<?=base_url("/index.php/formulario/abreformorc")?>" class="waves-effect waves-light btn">Solicite Orçamento</a>
                             </div>
                         </div>
                     </div>
@@ -218,7 +218,7 @@
                                 <p>Você e seus funcionários merecem o melhor plano de saúde.</p>
                             </div>
                             <div class="card-action">
-                                <a href="formulario_orcamento.html" class="waves-effect waves-light btn">Solicite Orçamento</a>
+                                <a href="<?=base_url("/index.php/formulario/abreformorc")?>" class="waves-effect waves-light btn">Solicite Orçamento</a>
                             </div>
                         </div>
                     </div>
@@ -235,7 +235,7 @@
                                 <p>Planos com descontos especiais para diversas entidades de classe.</p>
                             </div>
                             <div class="card-action">
-                                <a href="formulario_orcamento.html" class="waves-effect waves-light btn">Solicite Orçamento</a>
+                                <a href="<?=base_url("/index.php/formulario/abreformorc")?>" class="waves-effect waves-light btn">Solicite Orçamento</a>
                             </div>
                         </div>
                     </div>
@@ -252,7 +252,7 @@
                                 <p>Confira nosso plano odontológico, rede credenciada, e valores.</p>
                             </div>
                             <div class="card-action">
-                                <a href="formulario_orcamento.html" class="waves-effect waves-light btn center-align">Solicite Orçamento</a>
+                                <a href="<?=base_url("/index.php/formulario/abreformorc")?>" class="waves-effect waves-light btn center-align">Solicite Orçamento</a>
                             </div>
                         </div>
                     </div>
@@ -311,32 +311,32 @@
                 </div>
 
                 <div class="row" id="row_formulario">
-                    <form class="col s12">
+                    <form class="col s12" action="/index.php/formulario/faleconosco" method="post">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="first_name" type="text" class="validate">
-                                <label for="first_name">Primeiro nome:</label>
+                                <input id="nome" name="nome" type="text" class="validate">
+                                <label for="nome">Nome:</label>
                             </div>
 
                         </div>
 
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="telefone" type="text" class="validate">
+                                <input id="telefone" name="telefone" type="text" class="validate">
                                 <label for="telefone">Telefone:</label>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="email" type="email" class="validate">
+                                <input id="email" name="email" type="email" class="validate">
                                 <label for="email">Email:</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <label for="textarea1">Mensagem:</label>
-                                <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                <label for="mensagem">Mensagem:</label>
+                                <textarea id="mensagem" name="mensagem" class="materialize-textarea"></textarea>
                             </div>
                         </div>
                         <div class="row">
