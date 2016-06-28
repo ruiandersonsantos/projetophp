@@ -49,9 +49,7 @@
 
                 </div>
                 
-                <a href="<?= base_url("/index.php/usuario/logarFacebook") ?>">Login com Facebook</a>
-                <br>
-                <p><a href="<?php echo $login_url;?>">Login Google</a></p>
+                
             </form>
         <?php endif ?>
     </div>

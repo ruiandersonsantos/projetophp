@@ -102,74 +102,21 @@
                     </div>
                 </div>
                 <div class="row">
+                    <?php foreach($produtos as $produto) : ?>
                     <div class="col s12 m6 l3" id="divCard_produtos">
                         <div class="card z-depth-5">
                             <div class="card-image center-align">
-                                <img class="responsive-img" src="img/logo_convenio/amil.png">
+                                <img class="responsive-img" src="<?= base_url("img/logo_convenio").'/'.$produto["nome_arquivo"] ?>">
                             </div>
                             <div class="card-content teal" id="divContent_produtos">
                                 <span class="white-text left-align">
-                                    Os melhores <strong>Hospitais</strong> e <strong>Profissionais</strong> do Brasil.                                                              
-                                    Aproveite os benefícios e vantagens acrescentados aos nossos planos.<br/><br/>
-                                    - Cobertura Nacional<br/>
-                                    - Livre escolha com reembolso de consulta*</br>
-                                    - Analisamos redução de carências do seu plano anterior                                      
+                                      <?=$produto['descricao'] ?>
                                 </span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col s12 m6 l3" id="divCard_produtos">
-                        <div class="card z-depth-5">
-                            <div class="card-image center-align">
-                                <img class="responsive-img" src="img/logo_convenio/unimed.png">
-                            </div>
-                            <div class="card-content teal"  id="divContent_produtos">
-                                <span class="white-text">Prevenção à saúde com qualidade, 
-                                    com diferenciais humanos e técnicos, 
-                                    excelência no atendimento e com garantia Unimed.<br/>
-                                    - Abrangência: Nacional, Estadual e Regional.<br/>
-                                    - Acomodação: Apartamento ou enfermaria<br/>
-                                    - Pessoa Jurídica ou Pessoa Física
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col s12 m6 l3" id="divCard_produtos">
-                        <div class="card z-depth-5">
-                            <div class="card-image center-align">
-                                <img class="responsive-img" src="img/logo_convenio/golden.png">
-                            </div>
-                            <div class="card-content teal" id="divContent_produtos">
-                                <span class="white-text">Saúde suplementar e excelência no atendimento, 
-                                    uma referência no setor de saúde suplementar em todo território nacional, 
-                                    com uma ampla e qualificada rede referenciada.<br/>
-                                    - Médicos, clínicas e consultórios<br/>
-                                    - Hospitais, e laboratórios<br/>
-                                    - Atendimento Odontológico
-
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col s12 m6 l3 " id="divCard_produtos">
-                        <div class="card z-depth-5">
-                            <div class="card-image center-align">
-                                <img class="responsive-img" src="img/logo_convenio/sul_america.png">
-                            </div>
-                            <div class="card-content teal" id="divContent_produtos">
-                                <span class="white-text">O <strong>SulAmérica</strong> Saúde assegura qualidade de vida e 
-                                    bem-estar para você e sua família. Além da rede referenciada, o seguro 
-                                    oferece vantagens, benefícios, descontos e programas especiais para proporcionar 
-                                    a tranquilidade que vocês necessitam.
-
-
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                     <?php endforeach ?>
                 </div>
             </div>
         </section>

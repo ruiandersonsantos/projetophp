@@ -36,7 +36,12 @@
                                 <label class="control-label" for="imagem" >Imagem</label>
                             </div>
                             <div class="col-xs-9 col-sm-10 col-md-10">
-                                <input type="file" name="inputFile" id="inputFile" required="required">
+                                <select id="imagens_id" name="imagens_id" class="form-control" selectedIndex="<?= $produto['imagens_id'] ?>" >
+                                    <?php foreach ($imagens as $value): ?>
+                                    <option <?php echo ($value['id'] === $produto['imagens_id'])?'selected':'' ?> value="<?= $value['id'] ?>"> <?= $value['nome'] ?> </option>
+                                    <?php endforeach; ?>
+                                </select>
+                                
                             </div>
                         </div>
                     </div>
@@ -60,8 +65,8 @@
     </div>
 </footer>
 <!-- ./rodape -->
-     
-<?php include("rodape.php")?>
+
+<?php include("rodape.php") ?>
 
 
 

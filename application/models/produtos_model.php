@@ -8,32 +8,27 @@ class Produtos_model extends CI_Model {
     public function insereProduto($produto) {
         return $this->db->insert("produtos", $produto);
     }
-    
+
     public function ativarProduto($produto) {
-        $this->db->query("UPDATE produtos SET ordem =".$produto["ordem"].", status='".$produto["status"]."' WHERE id='".$produto["id"]."' ");
+        $this->db->query("UPDATE produtos SET ordem =" . $produto["ordem"] . ", status='" . $produto["status"] . "' WHERE id='" . $produto["id"] . "' ");
     }
-    
+
     public function alterarProduto($produto) {
-        
-        $produtoantes = $this->buscarPorId($produto['id']);
-        
-        $arquivogrande = $produtoantes['img_full_path'];
-        $thumbs = $produtoantes['img_path']."thumbs/".$produtoantes['img_nome'];
-        
+
+
+
         $this->db->where('id', $produto['id']);
-        if($this->db->update("produtos", $produto)){
-            unlink($arquivogrande);
-            unlink($thumbs);
-            return true;
-        } else {
-            return false;
-            
-        }
+        $this->db->update("produtos", $produto);
     }
 
     public function listaProduto() {
-        //return $this->db->get("produtos")->result_array();
-        return $this->db->query("select * from produtos order by ordem desc")->result_array();
+       return $this->db->query("select produtos.*, imagens.nome_arquivo from produtos inner join imagens "
+                        . "on produtos.imagens_id = imagens.id order by ordem desc")->result_array();
+    }
+    
+    public function listaProdutosativos() {
+       return $this->db->query("select produtos.*, imagens.nome_arquivo from produtos inner join imagens "
+                        . "on produtos.imagens_id = imagens.id where produtos.status = 1 order by ordem desc")->result_array();
     }
 
     public function buscarPorId($id) {
@@ -43,19 +38,9 @@ class Produtos_model extends CI_Model {
     }
 
     public function delete($produto) {
-        
-        $arquivogrande = $produto['img_full_path'];
-        $thumbs = $produto['img_path']."thumbs/".$produto['img_nome'];
-        
+
         $this->db->where('id', $produto['id']);
-        if ($this->db->delete("produtos", $produto)) {
-            unlink($arquivogrande);
-            unlink($thumbs);
-            return true;
-        } else {
-            return false;
-            
-        }
+        $this->db->delete("produtos", $produto);
     }
 
 }

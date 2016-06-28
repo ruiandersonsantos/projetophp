@@ -1,30 +1,33 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
 
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
+
 class Corretor extends CI_Controller {
 
     public function adm() {
-       
+
         autoriza();
-        
+
         $this->load->model("corretores_model");
 
         $corretor = $this->corretores_model->buscarCorretor();
 
         $dados = array("corretor" => $corretor);
-        
-        $this->load->view('adm/corretor',$dados);
+
+        $this->load->view('adm/corretor', $dados);
     }
 
     public function index() {
 
         $this->load->model("corretores_model");
+        $this->load->model("produtos_model");
 
         $corretor = $this->corretores_model->buscarCorretor();
+        $produtos = $this->produtos_model->listaProdutosativos();
 
-        $dados = array("corretor" => $corretor);
+        $dados = array("corretor" => $corretor, "produtos" => $produtos);
 
         $this->load->view('principal', $dados);
     }
@@ -64,7 +67,6 @@ class Corretor extends CI_Controller {
             "telefone" => $this->input->post("telefone"),
             "celular" => $this->input->post("celular"),
             "email" => $this->input->post("email")
-            
         );
 
 
@@ -78,8 +80,6 @@ class Corretor extends CI_Controller {
         //$this->load->view('corretor/resposta');
         //$this->load->view('/');
         redirect('corretor/adm');
-        
-           
     }
 
 }

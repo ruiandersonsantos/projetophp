@@ -24,16 +24,24 @@
                             </div>
 
                             <div class="panel-body">  
-                                <p><strong>Nome:</strong> Simone Louzada Moraes</p>
-                                <p><strong>Telefone:</strong> 987404766</p>
-                                <p><strong>Email:</strong> simone@simone.com</p>
-                                <p><strong>Cidade/Estado:</strong> Rio de Janeiro</p>
+                                <p><strong>Nome:</strong> <?= $cliente['nome'] ?></p>
+                                <p><strong>Telefone:</strong> <?= $cliente['telefone'] ?></p>
+                                <p><strong>Email:</strong> <?= $cliente['email'] ?></p>
+                                <p><strong>Cidade/Estado:</strong> <?= $cliente['cidade'] ?></p>
 
                             </div>
 
                             <div class="panel-footer">
-                                <p><strong>Tipo de Plano:</strong> Plano Individual/familiar</p>
-                                <p><strong>Convenio:</strong> Amil, Unimed...</p>
+                                <p><strong>Tipo de Plano:</strong> <?= $cliente['tipo_plano'] ?></p>
+                                <p>
+                                    <strong>Convenio:</strong>
+                                    <br/>
+                                    <?php
+                                    foreach ($planos as $value) {
+                                        echo $value ;
+                                    }
+                                    ?>
+                                </p>
                                 <p>
                                 <table class="table">
                                     <tbody>
@@ -41,15 +49,12 @@
                                             <td><strong>Faixa Etária</strong></td>
                                             <td class="align_td"><strong>Quant.</strong></td>
                                         </tr>
-
+                                        <?php foreach ($faixas as $value):  ?>
                                         <tr>
-                                            <td>00 a 18</td>
-                                            <td>2</td>                                            
+                                            <td><?php echo str_replace('faixa',' ',str_replace('_',' ', substr($value,0,strpos($value,'-')))) ?></td>
+                                            <td><?php echo str_replace('-',' ',substr($value,strpos($value,'-'))) ?></td>                                            
                                         </tr>
-                                        <tr>
-                                            <td>39 a 43</td>
-                                            <td>1</td>                                            
-                                        </tr>
+                                        <?php endforeach; ?>
 
                                     </tbody>
                                 </table>

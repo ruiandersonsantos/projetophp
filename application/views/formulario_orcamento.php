@@ -67,38 +67,37 @@
                             <!-- Card formulario -->
                             <div class="card-action ">
                                 <div class="row">
-                                    <form class="col s12 m12 l12" method="post">
+                                    <form class="col s12 m12 l12" method="post" action="<?= base_url("/index.php/formulario/orcamento") ?>">
                                         <div class="row"> 
                                             <div class="input-field col s12 m12 l8 cadastro">
-                                                <input required=""   id="nome" type="text" class="validate">
+                                                <input required="" name="nome"  id="nome" type="text" class="validate">
                                                 <label for="nome">Nome *</label>
                                             </div>
 
                                             <div class="input-field col s12 m12 l4 cadastro">
-                                                <input required=""  id="telefone" type="text" class="validate">
+                                                <input required="" name="telefone" id="telefone" type="text" class="validate">
                                                 <label for="telefone">Telefone *</label>
                                             </div>    
                                         </div>
 
                                         <div class="row">                                          
                                             <div class="input-field col s12 m12 l8 cadastro">
-                                                <input required="" id="email" type="email" class="validate">
+                                                <input required="" name="email" id="email" type="email" class="validate">
                                                 <label for="email">Email *</label>
                                             </div>
                                             <div class="input-field col s12 m12 l4 cadastro">
-                                                <input required="" id="cidade" type="text" class="validate">
+                                                <input required="" name="cidade" id="cidade" type="text" class="validate">
                                                 <label for="cidade">Cidade/Estado *</label>
                                             </div>                                           
                                         </div>
 
                                         <div class="row">
                                             <div class="input-field col s12">
-                                                <select class="select_formulario">
-                                                    <option value="0" disabled selected>Selecione...</option>
-                                                    <option value="1">Plano Individual/Familiar</option>
-                                                    <option value="2">Plano Empresarial</option>
-                                                    <option value="3">Plano por Adesão</option>
-                                                    <option value="4">Plano Odontológico</option>
+                                                <select required="" class="select_formulario" id="tipo_plano" name="tipo_plano">
+                                                    <option value="Plano Individual/Familiar">Plano Individual/Familiar</option>
+                                                    <option value="Plano Empresarial">Plano Empresarial</option>
+                                                    <option value="Plano por Adesão">Plano por Adesão</option>
+                                                    <option value="Plano Odontológico">Plano Odontológico</option>
                                                 </select>
                                                 <label>Selecione o tipo de Plano</label>
                                             </div>
@@ -111,43 +110,43 @@
                                           <h6>Selecione um plano ou mais para receber informações:</h6>
                                         <div class="row" id="divForm2_convenio">
                                             <p class="col s12 m12 l3">
-                                                <input type="checkbox" class="filled-in" id="check_amil"/>
-                                                <label for="check_amil">Amil</label>
+                                                <input type="checkbox" class="filled-in" name="check_Amil" id="check_Amil"/>
+                                                <label for="check_Amil">Amil</label>
                                             </p>
 
                                             <p class="col s12 m12 l3">
-                                                <input type="checkbox" class="filled-in" id="check_unimed"/>
-                                                <label for="check_unimed">Unimed</label>
+                                                <input type="checkbox" class="filled-in" name="check_Unimed" id="check_Unimed"/>
+                                                <label for="check_Unimed">Unimed</label>
                                             </p>
 
                                             <p class="col s12 m12 l3">
-                                                <input type="checkbox" class="filled-in" id="check_golden"/>
-                                                <label for="check_golden">Golden</label>
+                                                <input type="checkbox" class="filled-in" name="check_Golden" id="check_Golden"/>
+                                                <label for="check_Golden">Golden</label>
                                             </p>
 
                                             <p class="col s12 m12 l3">
-                                                <input type="checkbox" class="filled-in" id="check_cemeru"/>
-                                                <label for="check_cemeru">Cemeru</label>
+                                                <input type="checkbox" class="filled-in" name="check_Cemeru" id="check_Cemeru"/>
+                                                <label for="check_Cemeru">Cemeru</label>
                                             </p>
                                         </div>
 
                                         <div class="row">
                                             <p class="col s12 m12 l3">
-                                                <input type="checkbox" class="filled-in" id="check_intermedica"/>
-                                                <label for="check_intermedica">Intermedica</label>
+                                                <input type="checkbox" class="filled-in" name="check_Intermedica" id="check_Intermedica"/>
+                                                <label for="check_Intermedica">Intermedica</label>
                                             </p>
 
                                             <p class="col s12 m12 l3">
-                                                <input type="checkbox" class="filled-in" id="check_Bradesco"/>
+                                                <input type="checkbox" class="filled-in" name="check_Bradesco" id="check_Bradesco"/>
                                                 <label for="check_Bradesco">Bradesco</label>
                                             </p>
                                             <p class="col s12 m12 l3">
-                                                <input type="checkbox" class="filled-in" id="check_dix"/>
-                                                <label for="check_dix">Dix</label>
+                                                <input type="checkbox" class="filled-in" name="check_Dix" id="check_Dix"/>
+                                                <label for="check_Dix">Dix</label>
                                             </p>
 
                                             <p class="col s12 m12 l3">
-                                                <input type="checkbox" class="filled-in" id="check_outros"/>
+                                                <input type="checkbox" class="filled-in" name="check_outros" id="check_outros"/>
                                                 <label for="check_outros">Outros</label>
                                             </p>
                                         </div>
@@ -161,53 +160,53 @@
                                             <p style="font-size: 14px;">Por favor especifique a quantidade dentro das faixas etárias</p>
 
                                             <div class="input-field col s12 m12 l8 faixa_etaria">
-                                                <input id="faixa1" type="text" title="Insira a quantidade de usuário que possui a idade entre 00 a 18 anos" class="validate">
-                                                <label for="faixa1">00 a 18 anos</label>
+                                                <input id="faixa_00_a_18" name="faixa_00_a_18" type="text" title="Insira a quantidade de usuário que possui a idade entre 00 a 18 anos" class="validate">
+                                                <label for="faixa_00_a_18">00 a 18 anos</label>
                                             </div>
 
                                             <div class="input-field col s12 m12 l8 faixa_etaria">
-                                                <input id="faixa2" type="text" title="Insira a quantidade de usuário que possui a idade entre 19 a 23 anos" class="validate">
-                                                <label for="faixa2">19 a 23 anos</label>
+                                                <input id="faixa_19_a_23" name="faixa_19_a_23" type="text" title="Insira a quantidade de usuário que possui a idade entre 19 a 23 anos" class="validate">
+                                                <label for="faixa_19_a_23">19 a 23 anos</label>
                                             </div>
 
                                             <div class="input-field col s12 m12 l8 faixa_etaria">
-                                                <input id="faixa3" type="text" title="Insira a quantidade de usuário que possui a idade entre 24 a 28 anos" class="validate">
-                                                <label for="faixa3">24 a 28 anos</label>
+                                                <input id="faixa_24_a_28" name="faixa_24_a_28" type="text" title="Insira a quantidade de usuário que possui a idade entre 24 a 28 anos" class="validate">
+                                                <label for="faixa_24_a_28">24 a 28 anos</label>
                                             </div>
 
                                             <div class="input-field col s12 m12 l8 faixa_etaria">
-                                                <input id="faixa4" type="text" title="Insira a quantidade de usuário que possui a idade entre 29 a 33 anos" class="validate">
-                                                <label for="faixa4">29 a 33 anos</label>
+                                                <input id="faixa_29_a_33" name="faixa_29_a_33" type="text" title="Insira a quantidade de usuário que possui a idade entre 29 a 33 anos" class="validate">
+                                                <label for="faixa_29_a_33">29 a 33 anos</label>
                                             </div>
 
                                             <div class="input-field col s12 m12 l8 faixa_etaria">
-                                                <input id="faixa5" type="text" title="Insira a quantidade de usuário que possui a idade entre 34 a 38 anos" class="validate">
-                                                <label for="faixa5">34 a 38 anos</label>
+                                                <input id="faixa_34_a_38" name="faixa_34_a_38" type="text" title="Insira a quantidade de usuário que possui a idade entre 34 a 38 anos" class="validate">
+                                                <label for="faixa_34_a_38">34 a 38 anos</label>
                                             </div>
 
                                             <div class="input-field col s12 m12 l8 faixa_etaria">
-                                                <input id="faixa6" type="text" title="Insira a quantidade de usuário que possui a idade entre 39 a 43 anos" class="validate">
-                                                <label for="faixa6">39 a 43 anos</label>
+                                                <input id="faixa_39_a_43" name="faixa_39_a_43" type="text" title="Insira a quantidade de usuário que possui a idade entre 39 a 43 anos" class="validate">
+                                                <label for="faixa_39_a_43">39 a 43 anos</label>
                                             </div>
 
                                             <div class="input-field col s12 m12 l8 faixa_etaria">
-                                                <input id="faixa7" type="text" title="Insira a quantidade de usuário que possui a idade entre 44 a 48 anos" class="validate">
-                                                <label for="faixa7">44 a 48 anos</label>
+                                                <input id="faixa_44_a_48" name="faixa_44_a_48" type="text" title="Insira a quantidade de usuário que possui a idade entre 44 a 48 anos" class="validate">
+                                                <label for="faixa_44_a_48">44 a 48 anos</label>
                                             </div>
 
                                             <div class="input-field col s12 m12 l8 faixa_etaria">
-                                                <input id="faixa8" type="text" title="Insira a quantidade de usuário que possui a idade entre 49 a 53 anos" class="validate">
-                                                <label for="faixa8">49 a 53 anos</label>
+                                                <input id="faixa_49_a_53" name="faixa_49_a_53" type="text" title="Insira a quantidade de usuário que possui a idade entre 49 a 53 anos" class="validate">
+                                                <label for="faixa_49_a_53">49 a 53 anos</label>
                                             </div>
 
                                             <div class="input-field col s12 m12 l8 faixa_etaria">
-                                                <input id="faixa9" type="text" title="Insira a quantidade de usuário que possui a idade entre 54 a 58 anos" class="validate">
-                                                <label for="faixa9">54 a 58 anos</label>
+                                                <input id="faixa_54_a_58" name="faixa_54_a_58" type="text" title="Insira a quantidade de usuário que possui a idade entre 54 a 58 anos" class="validate">
+                                                <label for="faixa_54_a_58">54 a 58 anos</label>
                                             </div>
 
                                             <div class="input-field col s12 m12 l8 faixa_etaria">
-                                                <input id="faixa10" type="text" title="Insira a quantidade de usuário que possui a idade entre 59 anos ou +" class="validate">
-                                                <label for="faixa10">59 anos ou +</label>
+                                                <input id="faixa_59_ou_mais" name="faixa_59_ou_mais" type="text" title="Insira a quantidade de usuário que possui a idade entre 59 anos ou +" class="validate">
+                                                <label for="faixa_59_ou_mais">59 anos ou +</label>
                                             </div>
                                         </div>
                                         <!-- ./faixa etária -->
