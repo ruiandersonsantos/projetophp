@@ -1,5 +1,4 @@
 <?php
-
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
@@ -23,11 +22,13 @@ class Corretor extends CI_Controller {
 
         $this->load->model("corretores_model");
         $this->load->model("produtos_model");
+        $this->load->model("slider_model");
 
         $corretor = $this->corretores_model->buscarCorretor();
         $produtos = $this->produtos_model->listaProdutosativos();
+        $slider = $slider = $this->slider_model->listaSlider();
 
-        $dados = array("corretor" => $corretor, "produtos" => $produtos);
+        $dados = array("corretor" => $corretor, "produtos" => $produtos, "slider" => $slider);
 
         $this->load->view('principal', $dados);
     }

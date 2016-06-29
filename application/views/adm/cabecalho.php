@@ -40,12 +40,18 @@
                                 <li><a href="<?= site_url("/produto/listar") ?>">Listar</a></li>
                             </ul>
                         </li>
-
+                        
+                         <li class="dropdown">
+                            <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Designer <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="<?= site_url("/slider") ?>">Slider</a></li>
+                                
+                            </ul>
+                        </li>
                         
 
 
-                        <li><a href="#">Plano</a></li>
-                        <li><a href="#">Designer</a></li>
+                       
                          <?php if ($this->session->userdata("usuario_logado")['senha'] != '0000'
                                  or $this->session->userdata("usuario_logado")['senha'] != '1111') : ?>
                             <li><a href="<?= base_url("index.php/usuario/alterasenha") ?>">Alterar Senha</a></li>

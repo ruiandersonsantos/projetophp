@@ -54,36 +54,19 @@
         <section class="cyan lighten-5 sessao_slider">
             <div class="slider fullscreen">
                 <ul class="slides">
+                     <?php foreach($slider as $obj) : ?>
                     <li>
-                        <img src="img/slider/slider_familiar.jpg" class="responsive-img">
-                        <div class="caption center-align"  id="text_slider1">
-                            <h3>Planos de saúde <strong>Familiar</strong></h3>
-                            <h5 class="text-slider-sub">
-                                <strong>Sua família sempre segura!!!</strong>
+                        <img title="<?= $obj['titulo'] ?>" alt="<?= $obj['titulo'] ?>" src="<?= base_url("img/slider") . '/' . $obj["nome_arquivo"] ?>" class="responsive-img">
+                        <div class="<?= $obj['direcao'] ?>"  id="text_slider1">
+                            <h3 style="color: <?= '#'.$obj['cor_fonte'] ?>"><?= $obj['titulo'] ?></h3>
+                            <h5 style="color: <?= '#'.$obj['cor_fonte'] ?>" class="text-slider-sub">
+                                <strong><?= $obj['descricao'] ?></strong>
                             </h5>
                         </div>
                     </li>
+                    <?php endforeach ?>
 
-                    <li>
-                        <img src="img/slider/slider_dental.jpg" class="responsive-img">
-                        <div class="caption left-align"  id="text_slider2">
-                            <h3>Planos Odontologicos</h3>
-                            <h5 class="text-slider-sub">
-                                Saúde bucal por um preço que você pode pagar!
-                            </h5>
-                        </div>
-                    </li>
-
-                    <li>
-                        <img src="img/slider/slider_prof_saúde.jpg" class="responsive-img">
-                        <div class="caption right-align " id="text_slider3">
-                            <h3>Os melhores <strong>Profissionais!</strong></h3>
-                            <h5 class="text-slider-sub">
-                                <strong>Médicos</strong> e <strong>Clínicas</strong> especializadas!!!
-                            </h5>
-                        </div>
-                    </li>
-
+                   
                 </ul>
             </div>
         </section>

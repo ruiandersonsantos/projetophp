@@ -1,5 +1,21 @@
 $(document).ready(function () {
     
+    var imagem_anterior = $("#img_id").val();
+    
+    $("#img_id").change(function(){
+        var imagem_selecionada = $("#img_id").val();
+        
+        if(imagem_anterior != imagem_selecionada){
+            $("#img_" + imagem_anterior).hide();
+            $("#img_" + imagem_selecionada).show();
+            
+            imagem_anterior = imagem_selecionada;
+        }
+        
+    });
+    
+    
+    
      $(".scp_coluna").hide();
     
 
